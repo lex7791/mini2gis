@@ -8,7 +8,7 @@ class action_building
     public static function get_all()
     {
         $data = db::sql(
-            "Select c.name city, s.name street, b.house, concat(c.name,', ',s.name,' ',b.house)
+            "Select c.name city, s.name street, b.house, concat(c.name,', ',s.name,' ',b.house) address
             From building b
             JOIN city c on c.id=b.city_id
             JOIN street s on s.id=b.street_id
