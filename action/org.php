@@ -6,23 +6,19 @@ class action_org
     public static function get_phones($id = 0)
     {
         if(!$id) return;
-        $data = db::sql('[cache:900] Select oc.phone
+        return $data = db::sql('[cache:900] Select oc.phone
             From org_contact oc
             Where oc.org_id = ?i',$id);
-
-        return app::decode($data);
     }
 
     // рубрики организаций
     public static function get_rubrics($id = 0)
     {
         if(!$id) return;
-        $data = db::sql('[cache:900] Select r.name
+        return $data = db::sql('[cache:900] Select r.name
         From org_rubric ro
         JOIN rubric r on r.id=ro.rubric_id
         Where ro.org_id = ?i',$id);
-
-        return app::decode($data);
     }
 
     // полный адрес организации
